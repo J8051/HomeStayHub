@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'accomodations/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'accomodations/styles/allaccomodations.css' %}">
+    <title>HomeStayHub</title>
+  </head>
+  <body>
+    <header id="main-header">
+      <nav><a href="/home" id="main-logo">Accomodations </a></nav>
+      <h1>We have a lot of great places to stay</h1>
+      <p>Choose the place you like</p>
+    </header>
+    <main>
+      <section>
+        <ol>
+          {% for accomodation in accomodations %}
+          <li class="book-item">
+            <article>
+              <div class="book-summary">
+                <div class="book-image">
+                  <img
+                    src="{{ accomodation.primaryThumbnailImage }}"
+                    alt=""
+                  />
+                </div>
+                <div class="book-details">
+                  <h3>{{accomodation.title}}</h3>
+                  <p>${{accomodation.pricePerNight}} per night</p>
+                </div>
+
+              </div>
+              <div class="book-actions">
+                <br />
+                <a href="{{ accomodation.slug }}" class="btn">More Details</a>
+              </div>
+            </article>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>

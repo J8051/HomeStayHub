@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'accomodations/styles/base.css' %}">
+  <link rel="stylesheet" href="{% static 'accomodations/styles/allaccomodations.css' %}">
+  <link rel="stylesheet" href="{% static 'accomodations/styles/accomodationDetails.css' %}">
+  
+  <title>HomeStayHub</title>
+</head>
+
+<body>
+
+<header id="main-header">
+  <nav><a href="/books" id="main-logo">Accomodation Details</a></nav>
+  <h2>{{ accomodation.title }}</h2>
+  <h1>{{accomodation.location}}</h1>
+  <h1> Only ${{accomodation.pricePerNight}} per night</h1>
+</header>
+<main>
+  <article>
+      <img src="{{ accomodation.secondaryImage}}" alt="" width="600" height="500">
+
+      <section id="pages">
+          <h2>{{accomodation.title}} description</h2>
+          <address><span>{{accomodation.description}}</span></address>
+      </section>
+
+      <section>
+          <h2>What's inside?</h2>
+          <p>This place can have {{ accomodation.bedrooms }} guest(s) maximum<p>
+          <p>There are {{ accomodation.bedrooms }} bedrooms</p>
+          <p>There are {{ accomodation.bathrooms }} bathrooms</p>
+       
+          <footer>
+              <p>Need more details? Please <a href="">contact the admin</a></p>
+          </footer>
+      </section>
+
+  </article>
+</main>
+</body>
+</html>
